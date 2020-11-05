@@ -1,0 +1,136 @@
+{% extends 'layouts/layout.html' %}
+
+<!DOCTYPE html>  
+
+<html lang="en">  
+
+    {% block title %}
+
+        {{oit.title}}
+
+    {% endblock  %}
+
+    {% block content %}
+
+        <head>  
+            <meta charset="UTF-8">  
+            <title>Editar</title>  
+            {% load static  %}  
+            <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+        </head>  
+
+        <body>  
+            <form method="POST" class="post-form" action="/actualizar/{{oit.id}}">  
+                    {% csrf_token %}  
+                <div class="container"> 
+
+            <br>  
+                <div class="form-group row">  
+                <label class="col-sm-1 col-form-label"></label>  
+                <div class="col-sm-4">  
+                <h3>Actualice los datos</h3>  
+                </div>  
+
+            </div>  
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label">OIT:</label>  
+                <div class="col-sm-4">  
+                    <input type="text" name="oit" id="id_oit" required maxlength="20" value="{{ oit.oit }}"/>  
+                </div>  
+
+            </div>  
+            <div class="form-group row">  
+                <label class="col-sm-2 col-form-label">Servicio:</label>  
+                <div class="col-sm-4">  
+                    <input type="text" name="servicio" id="id_servicio" required TextField() value="{{ oit.servicio }}" />  
+                </div>  
+
+            </div>  
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label">Medio:</label>  
+                <div class="col-sm-4">  
+                    <input type="text" name="medio" id="id_medio" required maxlength="150" value="{{ oit.medio }}" />  
+                </div>  
+            
+            </div>  
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label">Red:</label>  
+                <div class="col-sm-4">  
+                    <input type="text" name="red" id="id_red" required maxlength="150" value="{{ oit.red }}" />  
+                </div> 
+
+            </div>  
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label">Proveedor:</label>  
+                <div class="col-sm-4">  
+                    <input type="text" name="proveedor" id="id_proveedor" required maxlength="150" value="{{ oit.proveedor }}" />  
+                </div>  
+
+            </div>  
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label">Fecha Acordada:</label>  
+                <div class="col-sm-4">  
+                    <input type="date" name="fecha_acordada" id="id_fecha_acordada" required DateField() value="{{ oit.fecha_acordada }}" />  
+                </div> 
+
+            </div>  
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label">Plazo Contrato:</label>  
+                <div class="col-sm-4">  
+                    <input type="date" name="plazo_contrato" id="id_plazo_contrato" required DateField() value="{{ oit.plazo_contrato }}" />  
+                </div>  
+
+            </div>  
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label">Renta Mensual:</label>  
+                <div class="col-sm-4">  
+                    <input type="text" name="renta_mensual" id="id_renta_mensual" required maxlength="150" value="{{ oit.renta_mensual }}" />  
+                </div>
+
+            </div>  
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label">Proceso:</label>  
+                <div class="col-sm-4">  
+                    <input type="text" name="proceso" id="id_proceso" required maxlength="150" value="{{ oit.proceso }}" />  
+                </div>  
+
+            </div>  
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label">Mes Venta:</label>  
+                <div class="col-sm-4">  
+                    <input type="date" name="mes_venta" id="id_mes_venta" required DateField() value="{{ oit.mes_venta }}" />  
+                </div>
+
+            </div>  
+                <div class="form-group row">  
+                <label class="col-sm-1 col-form-label"></label>  
+                <div class="col-sm-4">  
+                <button type="submit" class="btn btn-success">Actualizar</button>  
+                </div>  
+
+            </div>  
+
+                </div>  
+            </form>  
+
+        </body>  
+        
+    {% endblock %}
+
+</html>  
+
+<div class="form-row field-fecha_acordada">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_fecha_acordada">Fecha Acordada:</label>
+                        
+                            <input type="text" name="fecha_acordada" value="24/09/2020" class="vDateField" size="10" required="" id="id_fecha_acordada"><span class="datetimeshortcuts">&nbsp;<a href="#">Hoy</a>&nbsp;|&nbsp;<a href="#" id="calendarlink0"><span class="date-icon" title="Elija una fecha"></span></a></span>
+                        
+                    
+                    
+                <br><span class="timezonewarning">Nota: Usted va 5 horas por detrás de la hora del servidor.</span></div>
+            
+        </div>

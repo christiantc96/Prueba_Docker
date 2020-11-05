@@ -1,0 +1,76 @@
+{% extends 'layouts/layout.html' %}
+
+<!DOCTYPE html>  
+
+<html lang="en">  
+
+    {% block title %}
+
+        {{oit.title}}
+
+    {% endblock  %}
+
+    {% block content %}
+
+        <head>  
+            <meta charset="UTF-8">  
+            <title>Mostrar</title>  
+            {% load static %}  
+            <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+        </head>  
+
+        <body>  
+            <table border="1"  class="table table-striped table-bordered table-sm">  
+                    <thead class="thead-dark">  
+
+                    <tr>  
+                        <th>OIT</th>  
+                        <th>Servicio</th>  
+                        <th>Medio</th>  
+                        <th>Red</th>  
+                        <th>Proveedor</th>  
+                        <th>Fecha Acordada</th>  
+                        <th>Plazo Contrat</th>  
+                        <th>Renta Mensual</th>  
+                        <th>Proceso</th>  
+                        <th>Mes Venta</th> 
+                        <th>Opciones</th> 
+                    </tr>  
+
+                    </thead>  
+
+                    <tbody>  
+
+                {% for oi in oit %}  
+                    <tr>  
+
+                        <td>{{ oi.oit }}</td>  
+                        <td>{{ oi.servicio }}</td>  
+                        <td>{{ oi.medio }}</td>  
+                        <td>{{ oi.red }}</td>
+                        <td>{{ oi.proveedor }}</td>  
+                        <td>{{ oi.fecha_acordada }}</td>  
+                        <td>{{ oi.plazo_contrato }}</td>  
+                        <td>{{ oi.renta_mensual }}</td>  
+                        <td>{{ oi.proceso }}</td>
+                        <td>{{ oi.mes_venta }}</td>
+
+                        <td>  
+
+                            <a href="/editar/{{ oi.id }}"><span class="glyphicon glyphicon-pencil" >Editar</span></a>  
+
+                        </td>  
+                    </tr>  
+
+                {% endfor %} 
+            
+                    </tbody>  
+            </table>  
+            <br>  
+            <br>  
+            <center><a href="/agregar" class="btn btn-primary">Agregar Registro</a></center>  
+        </body>  
+
+    {% endblock %}
+
+</html>  

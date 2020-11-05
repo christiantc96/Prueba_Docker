@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+
+        <meta charset="utf-8" />    
+
+        <title>
+            
+            {% block title %}
+          
+            {% endblock %}
+            | Christian Tong
+        
+        </title>
+        
+        <!--CARGAR ARCHIVOS ESTATICOS PARA LOS ESTILOS CSS-->
+
+        {% load static %}
+
+        
+
+        <!--VINCULAR HOJAS DE ESTILOS CSS EN DJANGO-->
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+
+    <body>
+
+        <!--CABACERA DE LA PÁGINA-->
+        <header>
+
+            <div id="logotipo">
+
+                 
+
+                <!--LOGO DJANGO--> 
+                <!--<img src="{% static 'images/logo-vf.png' %}"/>-->
+
+                <h1>
+                    <!--Proyecto Personal con Django-->
+                </h1>
+                 
+            </div>
+
+       </header>
+       
+       <nav>
+
+        <ul>
+        
+            <li>
+                <a href="{% url 'index' %}">Inicio</a>
+            </li>
+
+            {% if user.email %}
+
+                <li>
+                    <a href="{% url 'mostrar_oit' %}">OIT</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+                
+            {% else %} 
+
+                <li>
+                    <a href="{% url 'register' %}">Registro</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'login' %}">Login</a>
+                </li>
+               
+            {% endif %}
+
+        </ul>
+
+       </nav>
+
+       <div class="barra">
+
+            <samp class="esquina-izquierda"></samp>
+            <samp class="relleno-barra"></samp>
+            <samp class="esquina-derecha"></samp>
+
+       </div>
+
+    <div id="content">  
+
+        <div class="box">
+
+            <!--DEFNINIR BLOQUE-->
+            {% block content %}
+                <!--CODIGO QUE VIENE DE TEMPLATES-->
+                <strong>Contenido del bloque original!!!</strong>
+            {% endblock %}
+
+        </div>       
+
+    </div>
+
+    <footer>
+
+        Proyecto Personal &copy; Christian Tong - {% now "d/m/y" %}
+
+    </footer>
+        
+    </body>
+
+    </head>
+
+</html>
